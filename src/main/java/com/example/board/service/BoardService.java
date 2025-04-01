@@ -19,7 +19,7 @@ public class BoardService {
 
     public BoardResponseDto save(String title, String contents, String username) {
 
-        Member findMember = memberRepository.findMemberByUsernameOrElseThrow(username);
+        Member findMember = memberRepository.findMemberByUsername(username);
 
         Board board = new Board(title, contents);
         board.setMember(findMember);
@@ -33,5 +33,6 @@ public class BoardService {
                 .stream()
                 .map(BoardResponseDto::toDto)
                 .collect(Collectors.toList());
+
     }
 }
