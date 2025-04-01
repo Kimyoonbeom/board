@@ -1,6 +1,7 @@
 package com.example.board.service;
 
 import com.example.board.dto.BoardResponseDto;
+import com.example.board.dto.BoardWithAgeResponseDto;
 import com.example.board.entity.Board;
 import com.example.board.entity.Member;
 import com.example.board.repository.BoardRepository;
@@ -9,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -32,7 +32,13 @@ public class BoardService {
         return boardRepository.findAll()
                 .stream()
                 .map(BoardResponseDto::toDto)
-                .collect(Collectors.toList());
+                .toList();
 
+    }
+    public BoardWithAgeResponseDto findById(Long id){
+        Board findBoard = boardRepository.findByIdOrElseThrow(id);
+        Member writer = findBoard.getMember();
+
+        return new BoardWithAgeResponseDto(findBoard.getTitle(), findBoard.getContents(), writer.getAge());
     }
 }
