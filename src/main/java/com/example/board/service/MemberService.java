@@ -1,7 +1,7 @@
 package com.example.board.service;
 
-import com.example.board.dto.MemberResponseDto;
-import com.example.board.dto.SignUpResponseDto;
+import com.example.board.dto.response.MemberResponseDto;
+import com.example.board.dto.response.SignUpResponseDto;
 import com.example.board.entity.Member;
 import com.example.board.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

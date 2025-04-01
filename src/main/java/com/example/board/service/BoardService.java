@@ -1,7 +1,7 @@
 package com.example.board.service;
 
-import com.example.board.dto.BoardResponseDto;
-import com.example.board.dto.BoardWithAgeResponseDto;
+import com.example.board.dto.response.BoardResponseDto;
+import com.example.board.dto.response.BoardWithAgeResponseDto;
 import com.example.board.entity.Board;
 import com.example.board.entity.Member;
 import com.example.board.repository.BoardRepository;
@@ -33,6 +33,7 @@ public class BoardService {
                 .stream()
                 .map(BoardResponseDto::toDto)
                 .toList();
+        //      .collect(Collectors.toList());
 
     }
     public BoardWithAgeResponseDto findById(Long id){
