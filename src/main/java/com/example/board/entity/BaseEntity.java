@@ -17,7 +17,7 @@ public abstract class BaseEntity {
 
     @CreatedDate
     @Column(updatable = false)
-//    @Temporal(TemporalType.TIMESTAMP) 생략가능
+    // @Temporal(TemporalType.TIMESTAMP) 생략가능
     private LocalDateTime createdAt;
 
     @LastModifiedDate
